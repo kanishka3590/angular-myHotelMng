@@ -1,0 +1,96 @@
+<div class="body body-s bg-cyan block"  >
+
+  <form action="" class="sky-form">
+    <header><h1>Registration form</h1></header>
+
+    <fieldset>
+      <section>
+        <label class="input">
+          <i class="icon-append icon-user"></i>
+          <input type="text" placeholder="Username" [(ngModel)]="users.name" name="name" >
+          <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+        </label>
+      </section>
+
+      <section>
+        <label class="input">
+          <i class="icon-append icon-user"></i>
+          <input type="text" placeholder="Role" [(ngModel)]="users.role" name="role" >
+          <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+        </label>
+      </section>
+
+      <section>
+        <label class="input">
+          <i class="icon-append icon-envelope-alt"></i>
+          <input type="text" placeholder="Email address" [(ngModel)]="users.email" name="email">
+          <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+        </label>
+      </section>
+
+      <section>
+        <label class="input">
+          <i class="icon-append icon-lock"></i>
+          <input type="password" placeholder="Password" [(ngModel)]="users.password" name="password">
+          <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+        </label>
+      </section>
+
+      <section>
+        <label class="input">
+          <i class="icon-append icon-lock"></i>
+          <input type="password" placeholder="Confirm password">
+          <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+        </label>
+      </section>
+
+      <section>
+        <label class="input">
+          <i class="icon-append icon-user"></i>
+          <input type="text" placeholder="Active Status" [(ngModel)]="users.activeStatus" name="activeStatus" >
+          <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+        </label>
+      </section>
+
+      
+    </fieldset>
+
+    <fieldset>
+      <div class="row">
+        <section class="col col-6">
+          <label class="input">
+            <input type="text" placeholder="Address" [(ngModel)]="users.address" name="address">
+          </label>
+        </section>
+        <section class="col col-6">
+          <label class="input">
+            <input type="text" placeholder="Phone No" [(ngModel)]="users.phoneNumber" name="phoneNumber">
+          </label>
+        </section>
+      </div>
+
+      <section>
+        <label class="select">
+          <select [(ngModel)]="users.gender" name="gender">
+            <option value="0" selected disabled>Gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Other</option>
+          </select>
+          <i></i>
+        </label>
+      </section>
+
+      <section>
+        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>I agree to the Terms of Service</label>
+        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>I want to receive news and  special offers</label>
+      </section>
+    </fieldset>
+    <footer>
+      <button type="submit" class="button" (click)="register()">Submit</button>
+    </footer>
+  </form>
+
+</div>
+
+

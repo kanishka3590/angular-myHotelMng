@@ -1,0 +1,106 @@
+<!-- binding class to tag -->
+<div [className]="'style1'">Binding with Class</div>
+<div [className]="'style2'">Binding with Class</div>
+<div [ngClass]="'style1 style2'">Binding with Class with Spaces</div>
+<div [ngClass]="'style1 style2'">Binding with Class</div>
+<div [ngClass]="['style1', 'style2']">Binding with Class In Array </div>
+<!-- one way binding -->
+<button [style.backgroundColor]="change ? properties.bgcolor:'red'"
+  [style.color]="change ? properties.color:'white'" (click)=changeBtn()>Change Color
+</button> 
+<!-- use directive -->
+<button
+[ngStyle]="{
+  'backgroundColor':change ? properties.bgcolor:'blue',
+  'color':change ? properties.color:'blue'
+}" (click)=changeBtn()>Cancel Color
+</button>
+
+<!-- ng style use directive -->
+<div
+ [ngStyle]="{
+  'backgroundColor':change ? properties.bgcolor:'blue',
+  'color':change ? properties.color:'white'
+}" (click)=changeBtn()>First
+</div>
+<div 
+[ngStyle]="{
+  'backgroundColor':change ? properties.bgcolor:'green',
+  'color':change ? properties.color:'black'
+}" (click)=changeBtn()>second
+</div>
+<div
+ [ngStyle]="{
+  'backgroundColor':change ? properties.bgcolor:'yellow',
+  'color':change ? properties.color:'black'
+}" (click)=changeBtn()>Third
+</div>
+<button (click)=changeBtn()>Change Formating</button>
+
+
+<!-- switch case -->
+<button type="button" (click)="funCheck1()">Check1</button>
+<button type="button" (click)="funCheck2()">Check2</button>
+<button type="button" (click)="funCheck3()">Check3</button>
+<div [ngSwitch]="choose">
+  <ul *ngSwitchCase="'check1'">
+    check1
+  </ul>
+  <ul *ngSwitchCase="'check2'">
+    check2
+  </ul>
+   <ul *ngSwitchCase="'check3'">
+    check3
+    </ul>
+</div>
+
+<ul>
+  <!-- second after ; is for index -->
+  <li *ngFor="let course of courses ; index as i">
+    {{i}}....{{course}}
+  </li>
+</ul>
+
+
+<!-- if else, if this condition is fulfil it will execute.if not then go to template variable noData-->
+<ul *ngIf="myCourse.length>0 ; else noData">
+  
+    <li *ngFor="let course of myCourse ; index as i">
+      {{i}}....{{course.name}}
+    <ul>
+      <li *ngFor="let topic of course.topic">
+      {{topic}}
+    </li>
+  </ul>
+    </li>
+  </ul>
+
+  <ng-template #noData>
+      No Course Here..!!
+  </ng-template>
+  
+<!-- if then else,mean if "if" block will execute "then" will alse execute.-->
+<div *ngIf="myCourse.length>0 ;then showData ; else Data"></div>
+<ng-template #showData>
+    <ul>      
+        <li *ngFor="let course of myCourse ; index as i">
+          {{i}}....{{course.name}}
+        <ul>
+          <li *ngFor="let topic of course.topic">
+          {{topic}}
+        </li>
+      </ul>
+        </li>
+      </ul>    
+</ng-template>
+    <ng-template #Data>
+        No Course Here..!!
+    </ng-template>
+    
+<!-- hidden property -->
+<div [hidden]="courses.length==0">
+  Data View
+</div>
+<div [hidden]="courses.length>0">
+  No Data
+</div>

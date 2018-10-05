@@ -1,0 +1,35 @@
+<form>
+<div class="row mt-1">
+  <div class="col-md-4 mb-3" *ngFor='let hotel of hotels'>
+  <div class="card">
+    <img class="card-img-top" src="../../../assets/images/smokedChicken.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><a routerLink='{{hotel._id}}'>{{hotel.name}}</a></h5>
+      <p class="card-text">{{hotel.description}}</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Sign in</button>
+
+    </div>
+  </div>
+</div>
+</div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)='getHotelsByFilter(offset-6,count)' aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" (click)='getHotelsByFilter(0,5)'>1</a></li>
+    <li class="page-item"><a class="page-link" (click)='getHotelsByFilter(5,10)'>2</a></li>
+    <li class="page-item"><a class="page-link" (click)='getHotelsByFilter(10,15)'>3</a></li>
+    <li class="page-item">
+      <a class="page-link" (click)='getHotelsByFilter(offset+6,count)' aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</form>
